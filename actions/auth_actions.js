@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 import { AsyncStorage } from 'react-native';
 import * as Expo from 'expo';
 
