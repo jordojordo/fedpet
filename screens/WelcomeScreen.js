@@ -1,6 +1,12 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { View, Text, AsyncStorage, ActivityIndicator } from 'react-native';
+import { 
+	View, 
+	Text, 
+	AsyncStorage, 
+	ActivityIndicator,
+	Platform
+} from 'react-native';
 import { AppLoading } from 'expo';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
@@ -16,6 +22,7 @@ class WelcomeScreen extends Component {
 	state = { accessToken: null } 
 
 	async componentWillMount() {
+		// AsyncStorage.removeItem('google_token');
     let accessToken = await AsyncStorage.getItem('google_token');
 
     if (accessToken) {

@@ -1,6 +1,6 @@
 import { 
 	GOOGLE_LOGIN_SUCCESS,
-	GOOGLE_LOGIN_FAIL 
+	GOOGLE_LOGIN_FAIL,
 } from '../actions/types';
 
 export default function(state = {}, action) {

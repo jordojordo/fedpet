@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
+import { withNavigation } from 'react-navigation';
+
 import { petUpdate, petCreate } from '../actions';
 import { Card, CardSection, Button } from '../components/common';
 import PetForm from '../components/PetForm';
@@ -10,6 +12,7 @@ class PetCreateScreen extends Component {
 		const { name, fedBreakfast, fedDinner } = this.props;
 
 		this.props.petCreate({ name, fedBreakfast, fedDinner });
+		this.props.navigation.navigate('house');
 	}
 
 	render() {
@@ -32,6 +35,6 @@ const mapStateToProps = (state) => {
 	return { name, fedBreakfast, fedDinner };
 };
 
-export default connect(mapStateToProps, {
+export default withNavigation(connect(mapStateToProps, {
 	petUpdate, petCreate
-})(PetCreateScreen);
+})(PetCreateScreen));

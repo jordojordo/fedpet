@@ -1,7 +1,7 @@
 import Expo from 'expo';
-import React from 'react';
-import firebase from 'firebase';
-import FIREBASE_CONFIG from './FirebaseConfig';
+import React, { Component } from 'react';
+import * as firebase from 'firebase';
+import { firebaseConfig } from './settings';
 import { Text, View, YellowBox } from 'react-native';
 import {
   createStackNavigator,
@@ -24,8 +24,7 @@ YellowBox.ignoreWarnings(['Require cycle:']);
 
 export default class App extends React.Component {
   componentWillMount() {
-    const config = FIREBASE_CONFIG;
-    firebase.initializeApp(config);
+    firebaseApp = firebase.initializeApp(firebaseConfig);
   }
 
   render() {
@@ -46,11 +45,7 @@ export default class App extends React.Component {
             house: {
               screen: createStackNavigator({
                 house: HouseholdScreen,
-                create: PetCreateScreen
-              })
-            },
-            profile: {
-              screen: createStackNavigator({
+                create: PetCreateScreen,
                 profile: PetProfileScreen,
                 edit: PetEditScreen
               })
@@ -58,7 +53,6 @@ export default class App extends React.Component {
             housemate: HousemateScreen,
           })
         }
-
       })
     );
 
