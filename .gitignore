@@ -7,3 +7,4 @@ npm-debug.*
 *.mobileprovision
 FirebaseConfig.js
 actions/ClientId.js
+settings.js
