@@ -2,6 +2,7 @@ import axios from 'axios';
 import firebase from 'firebase';
 import {
 	PET_UPDATE,
+	PET_AVATAR_UPDATE,
 	PET_CREATE,
 	PET_FEED_BREAKFAST,
 	PET_FEED_DINNER,
@@ -12,6 +13,13 @@ import {
 export const petUpdate = ({ prop, value, uid }) => {
 	return {
 		type: PET_UPDATE,
+		payload: { prop, value }
+	};
+};
+
+export const petAvatarUpdate = ({ prop, value, uid }) => {
+	return { 
+		type: PET_AVATAR_UPDATE,
 		payload: { prop, value }
 	};
 };

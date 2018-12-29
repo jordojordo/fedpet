@@ -17,15 +17,28 @@ class PetCreateScreen extends Component {
 
 	render() {
 		return (
-			<Card>
-				<PetForm {...this.props} />
+			<View>
 				<CardSection>
-					<Button onPress={this.onButtonPress}>
+					<Button onPress={this.onButtonPress} style={styles.buttonContainer}>
 						Create
 					</Button>
 				</CardSection>
-			</Card>
+
+				<PetForm {...this.props} />
+			</View>
 		);
+	}
+}
+
+const styles = {
+	container: {
+		flexDirection: 'column',
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+	buttonContainer: {
+		alignSelf: 'center'
 	}
 }
 

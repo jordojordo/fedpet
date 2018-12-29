@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 import {
 	PET_UPDATE,
+	PET_AVATAR_UPDATE,
 	PET_FEED_BREAKFAST,
 	PET_FEED_DINNER,
 	PET_CREATE,
@@ -10,7 +11,8 @@ import {
 const INITIAL_STATE = {
 	name: '',
 	fedBreakfast: '',
-	fedDinner: ''
+	fedDinner: '',
+	avatar: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -20,6 +22,8 @@ export default (state = INITIAL_STATE, action) => {
 		case PET_UPDATE:
 			/* This is NOT returning an array, this is called 'Key Interpolation', 
 			it determines what prop to use at runtime */
+			return { ...state, [action.payload.prop]: action.payload.value };
+		case PET_AVATAR_UPDATE:
 			return { ...state, [action.payload.prop]: action.payload.value };
 		case PET_FEED_BREAKFAST:
 			return { ...state, [action.payload.prop]: action.payload.value };

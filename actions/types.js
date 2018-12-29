@@ -2,6 +2,7 @@ export const GOOGLE_LOGIN_SUCCESS = 'google_login_success';
 export const GOOGLE_LOGIN_FAIL = 'google_login_fail';
 export const CREATE_USER = 'create_user';
 export const PET_UPDATE = 'pet_update';
+export const PET_AVATAR_UPDATE = 'pet_avatar_update';
 export const PET_FEED_BREAKFAST = 'pet_feed_breakfast';
 export const PET_FEED_DINNER = 'pet_feed_dinner';
 export const PET_CREATE = 'pet_create';

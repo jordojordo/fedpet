@@ -5593,7 +5593,7 @@ react-native-gesture-handler@^1.0.0:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
-"react-native-maps@github:expo/react-native-maps#v0.22.1-exp.0":
+react-native-maps@expo/react-native-maps#v0.22.1-exp.0:
   version "0.22.1"
   resolved "https://codeload.github.com/expo/react-native-maps/tar.gz/e6f98ff7272e5d0a7fe974a41f28593af2d77bb2"
 
@@ -5625,6 +5625,11 @@ react-native-screens@1.0.0-alpha.15:
   version "1.0.0-alpha.19"
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-1.0.0-alpha.19.tgz#ecf3c9023e169b7013266d40b9c5599f37667f6d"
   integrity sha512-+a7GdwzLWYWYVUJMg+XuyBoRFGD8GdGyBfebuTNBY+xwUZpTXCaK/GlLGL6EE3h0iBHZu83do7zViEailWRNyA==
+
+react-native-sideswipe@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/react-native-sideswipe/-/react-native-sideswipe-1.4.2.tgz#9e3e23077884838c5592533bf09ffd7977283b74"
+  integrity sha512-WhxmXVWijMx1smPlWQwSrzklq9284xsZEnArzQLvksA/23Tsic4AbsMOkqHZB1kjiLEBBbdspLyie5mOnf9zUw==
 
 react-native-svg@8.0.8:
   version "8.0.8"
