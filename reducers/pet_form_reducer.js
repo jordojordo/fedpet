@@ -12,7 +12,7 @@ const INITIAL_STATE = {
 	name: '',
 	fedBreakfast: '',
 	fedDinner: '',
-	avatar: ''
+	currentIndex: ''
 };
 
 export default (state = INITIAL_STATE, action) => {

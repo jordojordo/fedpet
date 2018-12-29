@@ -16,7 +16,7 @@ import Carousel from './Carousel';
 class PetForm extends Component {
 	render() {
 		return (
-			<View>
+			<View style={styles.formStyle}>
 				<CardSection>
 					<Input
 						label="Name"
@@ -28,16 +28,26 @@ class PetForm extends Component {
 				<View>
 					<Carousel />
 				</View>
+				<CardSection style={styles.textStyle}>
+					<Text>
+						Swipe to choose an avatar!
+					</Text>
+				</CardSection>
 			</View>
 		);
 	}
 }
 
 const styles = {
-	cardStyle: {
-		// flex: 1,
+	formStyle: {
+		position: 'absolute'
+	},
+	textStyle: {
+		justifyContent: 'center',
+		alignSelf: 'center',
 	}
 };
+
 
 const mapStateToProps = (state) => {
 	const { name } = state.petForm;

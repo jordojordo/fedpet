@@ -5,7 +5,7 @@ import { View, Text } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
 import PetForm from '../components/PetForm';
-import { petUpdate, petSave, petDelete } from '../actions';
+import { petUpdate, petAvatarUpdate, petSave, petDelete } from '../actions';
 import { Card, CardSection, Confirm, Button } from '../components/common';
 
 class PetEditScreen extends Component {
@@ -18,9 +18,9 @@ class PetEditScreen extends Component {
 	}
 
 	onButtonPress = () => {
-		const { name, uid } = this.props.navigation.state.params;
+		const { name, uid, currentIndex } = this.props.navigation.state.params;
 
-		this.props.petSave({ name: this.props.name, uid });
+		this.props.petSave({ name: this.props.name, uid, currentIndex: this.props.currentIndex });
 		this.props.navigation.navigate('house');
 	}
 
@@ -37,20 +37,15 @@ class PetEditScreen extends Component {
 
 	render() {
 		const { navigation } = this.props;
-		const { name, uid } = navigation.state.params;
-		{console.log('PetEditScreen.js name: ', name, 'uid: ', uid)};
+		const { name, uid, currentIndex } = navigation.state.params;
 
 		return (
-			<Card>
+			<View>
 				<PetForm {...this.props}/>
-
-				<CardSection>
+				<CardSection style={styles.buttonContainer}>
 					<Button onPress={this.onButtonPress}>
 						Save Changes
 					</Button>
-				</CardSection>
-
-				<CardSection>
 					<Button onPress={() => this.setState({ showModal: !this.state.showModal })}>
 						Delete Pet
 					</Button>
@@ -63,17 +58,25 @@ class PetEditScreen extends Component {
 				>
 					Are you sure you want to delete this?
 				</Confirm>
-			</Card>
+			</View>
 		);
 	}
 }
 
-const mapStateToProps = (state) => {
-	const { name } = state.petForm;
+const styles = {
+	buttonContainer: {
+		justifyContent: 'center',
+		alignSelf: 'center',
+		marginTop: 240,
+	}
+}
 
-	return { name };
+const mapStateToProps = (state) => {
+	const { name, currentIndex } = state.petForm;
+
+	return { name, currentIndex };
 };
 
 export default withNavigation(connect(mapStateToProps, {
-	petUpdate, petSave, petDelete
+	petUpdate, petAvatarUpdate, petSave, petDelete
 })(PetEditScreen));

@@ -14,6 +14,7 @@ import { withNavigation } from 'react-navigation';
 import PetForm from '../components/PetForm';
 import { 
 	petFeedBreakfast, 
+	petAvatarUpdate,
 	petFeedDinner, 
 	petUpdate
 } from '../actions';
@@ -87,12 +88,12 @@ class PetProfileScreen extends Component {
 	}
 
 	onEditPress = () => {
-		const { name, uid } = this.props.navigation.state.params;
+		const { name, uid, currentIndex } = this.props.navigation.state.params;
 		this.props.navigation.navigate('edit', {
 			name,
-			uid
+			uid,
+			currentIndex		
 		});
-		console.log('onEditPress name: ', name, 'uid: ', uid);
 	}
 
 	render() {
@@ -167,13 +168,14 @@ const styles = {
 }
 
 const mapStateToProps = state => {
-	const { name, fedBreakfast, fedDinner, uid } = state.petForm;
+	const { name, fedBreakfast, fedDinner, uid, currentIndex } = state.petForm;
 
-	return { name, fedBreakfast, fedDinner, uid };
+	return { name, fedBreakfast, fedDinner, uid, currentIndex };
 }
 
 export default withNavigation(connect(mapStateToProps, { 
 	petUpdate,
+	petAvatarUpdate,
 	petFeedBreakfast,
 	petFeedDinner 
 })(PetProfileScreen));

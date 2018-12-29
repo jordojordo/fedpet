@@ -6,8 +6,6 @@ import { withNavigation } from 'react-navigation';
 
 import { petAvatarUpdate } from '../actions';
 import { Avatar } from './CarouselIndex';
-import { CardSection, Input } from './common';
-
 
 const { width } = Dimensions.get('window');
 
@@ -53,9 +51,6 @@ class Carousel extends Component {
 						/>
 					)}
 				/>
-				<Text style={styles.textStyle}>
-					Swipe to choose an avatar!
-				</Text>
 			</View>
 		);
 	}
@@ -63,8 +58,20 @@ class Carousel extends Component {
 
 const styles = {
 	avatarContainer: {
-		position: 'absolute',
-		marginTop: 10
+		borderBottomWidth: 1,
+		borderRadius: 2,
+		borderColor: '#ddd',
+		borderBottom: 0,
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 2 },
+		shadowOpacity: 0.1,
+		shadowRadius: 2,
+		elevation: 1,
+		marginTop: 10,
+		paddingBottom: 10,
+		justifyContent: 'flex-start',
+		flexDirection: 'row',
+		position: 'relative'
 	},
 	fill: {
 		paddingTop: 0,
@@ -74,12 +81,6 @@ const styles = {
 		right: 0,
 		bottom: 0
 	},
-	textStyle: {
-		flex: 1,
-		justifyContent: 'center',
-		alignSelf: 'center',
-		marginVertical: 10
-	}
 };
 
 export default connect(null, { petAvatarUpdate })(Carousel);

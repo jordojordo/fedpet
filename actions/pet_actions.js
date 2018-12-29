@@ -49,12 +49,12 @@ export const petsFetch = () => async dispatch => {
 	});
 };
 
-export const petSave = ({ name, uid }) => {
+export const petSave = ({ name, uid, currentIndex }) => {
 	const { currentUser } = firebase.auth();
 
 	return (dispatch) => {
 		firebase.database().ref(`/users/${currentUser.uid}/pets/${uid}`)
-			.set({ name })
+			.set({ name, currentIndex })
 			.then(() => {
 				dispatch({ type: PET_SAVE_SUCCESS });
 			});
@@ -81,7 +81,6 @@ export const petFeedBreakfast = ({ fedBreakfast, uid }) => async dispatch => {
 						payload: { prop: 'fedBreakfast', value: fedBreakfast } 
 					});
 				});
-				console.log('pet_actions.js uid: ', uid);
 		};
 	});
 };
