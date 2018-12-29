@@ -6,5 +6,6 @@ export default {
 	pig: require('./pig.png'),
 	rabbit: require('./rabbit.png'),
 	turtle: require('./turtle.png'),
-	unicorn: require('./unicorn.png')
+	unicorn: require('./unicorn.png'),
+	corgi: require('./corgi.png')
 };

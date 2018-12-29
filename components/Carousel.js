@@ -20,6 +20,7 @@ const avatars = [
 	{ title: 'Rabbit', value: 'rabbit' },
 	{ title: 'Turtle', value: 'turtle' },
 	{ title: 'Unicorn', value: 'unicorn' },
+	{ title: 'Corgi', value: 'corgi' },
 ];
 
 class Carousel extends Component {

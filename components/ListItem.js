@@ -3,7 +3,20 @@ import { Text, TouchableOpacity, View, Image } from 'react-native';
 import { withNavigation, NavigationActions } from 'react-navigation';
 
 import { CardSection } from './common';
-import { Avatar } from './Carousel';
+import images from '../assets/images';
+
+const avatars = [
+	images.cat,
+	images.dog,
+	images.bird,
+	images.fish,
+	images.pig,
+	images.rabbit,
+	images.turtle,
+	images.unicorn,
+	images.corgi
+];
+
 
 class ListItem extends Component {
  	onRowPress = () => {
@@ -12,19 +25,20 @@ class ListItem extends Component {
  			name: this.props.pet.name, 
  			uid: this.props.pet.uid,
  			fedBreakfast: this.props.pet.fedBreakfast,
- 			fedDinner: this.props.pet.fedDinner
+ 			fedDinner: this.props.pet.fedDinner,
+ 			currentIndex: this.props.pet.currentIndex
  		});
  	}
 
 	render() {
-		const { name } = this.props.pet;
+		const { name, currentIndex } = this.props.pet;
 
 		return (
 			<TouchableOpacity onPress={this.onRowPress}>
 				<View>
 					<CardSection style={styles.cardStyle}>
 						<Image 
-							source={{ Avatar }}
+							source={avatars[currentIndex]}
 							style={styles.imageStyle} />
 						<Text style={styles.titleStyle}>
 							{name}

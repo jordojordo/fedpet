@@ -13,7 +13,6 @@ class PetCreateScreen extends Component {
 
 		this.props.petCreate({ name, fedBreakfast, fedDinner, currentIndex });
 		this.props.navigation.navigate('house');
-		console.log(currentIndex);
 	}
 
 	render() {
