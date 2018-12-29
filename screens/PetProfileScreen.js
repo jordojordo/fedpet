@@ -19,7 +19,19 @@ import {
 } from '../actions';
 import { Card, CardSection } from '../components/common';
 import HouseholdScreen from './HouseholdScreen';
+import images from '../assets/images';
 
+const avatars = [
+	images.cat,
+	images.dog,
+	images.bird,
+	images.fish,
+	images.pig,
+	images.rabbit,
+	images.turtle,
+	images.unicorn,
+	images.corgi
+];
 
 class PetProfileScreen extends Component {
 	static navigationOptions = ({ navigation }) => ({
@@ -85,7 +97,7 @@ class PetProfileScreen extends Component {
 
 	render() {
 		const { navigation } = this.props;
-		const { name, uid, fedBreakfast, fedDinner } = navigation.state.params;
+		const { name, uid, fedBreakfast, fedDinner, currentIndex } = navigation.state.params;
 
 		return (
 			<Card>
@@ -93,7 +105,7 @@ class PetProfileScreen extends Component {
 					<TouchableOpacity onPress={this.onEditPress}>
 						<View style={styles.profileStyle}>
 							<Image 
-								source={{uri: 'https://facebook.github.io/react/logo-og.png'}}
+								source={avatars[currentIndex]}
 								style={styles.imageStyle} />
 							<Text style={styles.cardText}>
 								{name}

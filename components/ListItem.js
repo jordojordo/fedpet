@@ -17,7 +17,6 @@ const avatars = [
 	images.corgi
 ];
 
-
 class ListItem extends Component {
  	onRowPress = () => {
  		const { navigation } = this.props;
