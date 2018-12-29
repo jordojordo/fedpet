@@ -3,16 +3,17 @@ import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
-import { petUpdate, petCreate } from '../actions';
+import { petUpdate, petAvatarUpdate, petCreate } from '../actions';
 import { Card, CardSection, Button } from '../components/common';
 import PetForm from '../components/PetForm';
 
 class PetCreateScreen extends Component {
 	onButtonPress = () => {
-		const { name, fedBreakfast, fedDinner } = this.props;
+		const { name, fedBreakfast, fedDinner, currentIndex } = this.props;
 
-		this.props.petCreate({ name, fedBreakfast, fedDinner });
+		this.props.petCreate({ name, fedBreakfast, fedDinner, currentIndex });
 		this.props.navigation.navigate('house');
+		console.log(currentIndex);
 	}
 
 	render() {
@@ -43,11 +44,11 @@ const styles = {
 }
 
 const mapStateToProps = (state) => {
-	const { name, fedBreakfast, fedDinner } = state.petForm;
+	const { name, fedBreakfast, fedDinner, currentIndex } = state.petForm;
 
-	return { name, fedBreakfast, fedDinner };
+	return { name, fedBreakfast, fedDinner, currentIndex };
 };
 
 export default withNavigation(connect(mapStateToProps, {
-	petUpdate, petCreate
+	petUpdate, petAvatarUpdate, petCreate
 })(PetCreateScreen));

@@ -3,6 +3,7 @@ import { Text, TouchableOpacity, View, Image } from 'react-native';
 import { withNavigation, NavigationActions } from 'react-navigation';
 
 import { CardSection } from './common';
+import { Avatar } from './Carousel';
 
 class ListItem extends Component {
  	onRowPress = () => {
@@ -23,7 +24,7 @@ class ListItem extends Component {
 				<View>
 					<CardSection style={styles.cardStyle}>
 						<Image 
-							source={{uri: 'https://facebook.github.io/react/logo-og.png'}}
+							source={{ Avatar }}
 							style={styles.imageStyle} />
 						<Text style={styles.titleStyle}>
 							{name}

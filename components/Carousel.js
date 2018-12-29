@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import SideSwipe from 'react-native-sideswipe';
 import { withNavigation } from 'react-navigation';
 
-// import { petAvatarUpdate } from '../actions';
+import { petAvatarUpdate } from '../actions';
 import { Avatar } from './CarouselIndex';
 import { CardSection, Input } from './common';
 
@@ -27,15 +27,8 @@ class Carousel extends Component {
 		currentIndex: 0,
 	};
 
-	// onSliderChange = index => {
-	// 	this.props.petAvatarUpdate({ prop: 'currentIndex', value: index });
-	// }
-
-
-
 	render() {
 		const offset = (width - Avatar.WIDTH) / 2;
-		{console.log(this.state.currentIndex)};
 
 		return (
 			<View style={styles.avatarContainer}>
@@ -49,7 +42,7 @@ class Carousel extends Component {
 					extractKey={item => item.value}
 					contentOffset={offset}
 					onIndexChange={index => 
-						this.setState(() => ({ currentIndex: index }))}
+						this.props.petAvatarUpdate({ prop: 'currentIndex', value: index })}
 					renderItem={({ itemIndex, currentIndex, item, animatedValue }) => (
 						<Avatar
 							avatar={item}
@@ -88,4 +81,4 @@ const styles = {
 	}
 };
 
-export default Carousel;
+export default connect(null, { petAvatarUpdate })(Carousel);

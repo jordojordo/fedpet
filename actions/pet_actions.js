@@ -24,12 +24,12 @@ export const petAvatarUpdate = ({ prop, value, uid }) => {
 	};
 };
 
-export const petCreate = ({ name, fedBreakfast, fedDinner }) => {
+export const petCreate = ({ name, fedBreakfast, fedDinner, currentIndex }) => {
 	const { currentUser } = firebase.auth();
 
 	return (dispatch) => {
 		firebase.database().ref(`/users/${currentUser.uid}/pets`)
-			.push({ name, fedBreakfast, fedDinner })
+			.push({ name, fedBreakfast, fedDinner, currentIndex })
 			.then(() => {
 				dispatch({ type: PET_CREATE });
 		});
